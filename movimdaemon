@@ -16,7 +16,7 @@ LOGFILE="/var/log/${NAME}.log"
 DAEMON="/usr/bin/php"
 DAEMON_OPTS="/var/www/virtual/mynetwork.pw/htdocs/movim/daemon.php https://mynetwork.pw/movim 8081"
 
-START_OPTS="--start --background --make-pidfile --pidfile ${PIDFILE} --exec ${DAEMON}         ${DAEMON_OPTS}"
+START_OPTS="--start --background -u www-data -g www-data --make-pidfile --pidfile ${PIDFILE} --exec ${DAEMON}         ${DAEMON_OPTS}"
 STOP_OPTS="--stop --pidfile ${PIDFILE}"
 
 test -x $DAEMON || exit 0
